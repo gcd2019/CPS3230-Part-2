@@ -1,0 +1,38 @@
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>loggedOut
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.logIn() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.viewAlerts() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.deleteAlerts() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.logOut() TO STATE::> loggedOut
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>loggedOut
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.logIn() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.addAlert() TO STATE::> inSystem
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>inSystem
+BAD STATE (ALREADY VIEWED)
+[badActionsProperty]MOVED ON METHODCALL: void main.Task2.Application.viewAlerts() TO STATE::> !!!SYSTEM REACHED BAD STATE!!! cannotDeleteOrAlreadyViewed 
+aspects._asp_task20.ajc$before$aspects__asp_task20$3$e175b9e5(_asp_task20.aj:30)
+main.Task2.runSystem(Task2.java:56)
+main.Task2.main(Task2.java:17) 
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>cannotDeleteOrAlreadyViewed
+[badActionsProperty]AUTOMATON::> badActionsProperty() STATE::>cannotDeleteOrAlreadyViewed

@@ -1,0 +1,21 @@
+digraph _logic_badActionsProperty {
+rankdir=LR;
+node [shape = circle]; inSystem moreThanFiveAlerts loggedOut;
+node [shape = octagon]; cannotDeleteOrAlreadyViewed;
+node [shape = point]; _s_s;
+_s_s -> loggedOut;
+loggedOut -> inSystem [ label = "(1) logIn\\isLoggedIn == false && alerts < 6 \\isLoggedIn = true ; "];
+loggedOut -> moreThanFiveAlerts [ label = "(2) logIn\\isLoggedIn == false && alerts > 5 \\isLoggedIn = true ; "];
+moreThanFiveAlerts -> moreThanFiveAlerts [ label = "(1) addAlert\\\\System . out . println ( \" Only latest 5 alerts will show up \" ) ; "];
+moreThanFiveAlerts -> moreThanFiveAlerts [ label = "(2) viewAlerts\\viewed == false \\viewed = true ; "];
+moreThanFiveAlerts -> inSystem [ label = "(3) deleteAlerts\\\\alerts = 0 ; "];
+moreThanFiveAlerts -> cannotDeleteOrAlreadyViewed [ label = "(4) viewAlerts\\viewed == true \\System . out . println ( \" BAD STATE (ALREADY VIEWED) \" ) ; "];
+moreThanFiveAlerts -> loggedOut [ label = "(5) logOut\\isLoggedIn == true \\isLoggedIn = false ; "];
+inSystem -> loggedOut [ label = "(1) logOut\\isLoggedIn == true \\isLoggedIn = false ; "];
+inSystem -> inSystem [ label = "(2) addAlert\\\\alerts ++ ; "];
+inSystem -> inSystem [ label = "(3) deleteAlerts\\alerts != 0 \\alerts = 0 ; "];
+inSystem -> inSystem [ label = "(4) viewAlerts\\viewed == false \\viewed = true ; "];
+inSystem -> moreThanFiveAlerts [ label = "(5) addAlert\\alerts == 5 \\alerts ++ ; "];
+inSystem -> cannotDeleteOrAlreadyViewed [ label = "(6) deleteAlerts\\alerts == 0 \\System . out . println ( \" BAD STATE (CANNOT DELETE) \" ) ; "];
+inSystem -> cannotDeleteOrAlreadyViewed [ label = "(7) viewAlerts\\viewed == true \\System . out . println ( \" BAD STATE (ALREADY VIEWED) \" ) ; "];
+}

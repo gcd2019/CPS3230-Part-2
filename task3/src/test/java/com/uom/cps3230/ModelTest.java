@@ -131,7 +131,7 @@ public class ModelTest implements FsmModel {
     //Test runner
     @Test
     public void BulbOperatorModelRunner() {
-        final GreedyTester tester = new GreedyTester(new ModelTest()); //Creates a test generator that can generate random walks. A greedy random walk gives preference to transitions that have never been taken before. Once all transitions out of a state have been taken, it behaves the same as a random walk.
+        final GreedyTester tester = new GreedyTester(new ModelTest());
         tester.setRandom(new Random()); //Allows for a random path each time the model is run.
         tester.buildGraph(); //Builds a model of our FSM to ensure that the coverage metrics are correct.
         tester.addListener(new StopOnFailureListener()); //This listener forces the test class to stop running as soon as a failure is encountered in the model.

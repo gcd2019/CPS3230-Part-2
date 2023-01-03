@@ -1,0 +1,49 @@
+GLOBAL {
+	VARIABLES {
+		boolean isLoggedIn = false;
+		int alerts = 0;
+		boolean viewed = false;
+	}
+	
+	EVENTS {
+		logIn() = {*.logIn()}
+		logOut() = {*.logOut()}
+		addAlert() = {*.addAlert()}
+		deleteAlerts() = {*.deleteAlerts()}
+		viewAlerts() = {*.viewAlerts()}
+	}
+	
+	PROPERTY badActionsProperty {
+		STATES {
+			BAD {
+				cannotDeleteOrAlreadyViewed
+			}
+			NORMAL {
+				inSystem
+				moreThanFiveAlerts
+			}
+			STARTING {
+				loggedOut
+			}
+		}
+		
+		TRANSITIONS {
+			loggedOut -> inSystem [logIn\isLoggedIn == false && alerts < 6\isLoggedIn = true;]
+			loggedOut -> moreThanFiveAlerts [logIn\isLoggedIn == false && alerts > 5\isLoggedIn = true;]
+			
+			inSystem -> loggedOut [logOut\isLoggedIn == true\isLoggedIn = false;]
+			inSystem -> inSystem [addAlert\\alerts++;]
+			inSystem -> inSystem [deleteAlerts\alerts != 0\alerts = 0;]
+			inSystem -> inSystem [viewAlerts\viewed == false\viewed = true;]
+			inSystem -> moreThanFiveAlerts [addAlert\alerts == 5\ alerts++;]
+			inSystem -> cannotDeleteOrAlreadyViewed [deleteAlerts\alerts == 0\System.out.println("BAD STATE (CANNOT DELETE)");]
+			inSystem -> cannotDeleteOrAlreadyViewed [viewAlerts\viewed == true\System.out.println("BAD STATE (ALREADY VIEWED)");]
+
+			moreThanFiveAlerts -> moreThanFiveAlerts [addAlert\\System.out.println("Only latest 5 alerts will show up");]
+			moreThanFiveAlerts -> moreThanFiveAlerts [viewAlerts\viewed == false\viewed = true;]
+			moreThanFiveAlerts -> inSystem [deleteAlerts\\alerts = 0;]
+			moreThanFiveAlerts -> cannotDeleteOrAlreadyViewed [viewAlerts\viewed == true\System.out.println("BAD STATE (ALREADY VIEWED)");]		
+			moreThanFiveAlerts -> loggedOut [logOut\isLoggedIn == true\ isLoggedIn = false;]
+		}
+	}
+}
